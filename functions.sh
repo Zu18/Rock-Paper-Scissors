@@ -18,6 +18,11 @@ get_user_choice() {
 
 
 # computer's choice
+computer_choice() {
+	random_number=$(( (RANDOM % 3) + 1 ))
+        echo "computer choice: $random_number"
+}
+
 
 #Score
 
