@@ -19,8 +19,14 @@ get_user_choice() {
 
 # computer's choice
 computer_choice() {
-	random_number=$(( (RANDOM % 3) + 1 ))
-        echo "computer choice: $random_number"
+	computer_number=$(( (RANDOM % 3) + 1 ))
+        echo "computer choice: $computer_number"
+	
+	case $computer_number in
+		1) echo "Computer chose Rock" ;;
+		2) echo "Computer chose Paper" ;;
+		3) echo "Computer chose Scissors" ;;
+	esac
 }
 
 
