@@ -1,3 +1,8 @@
+#!/bin/bash
+
+source "colours.sh"
+
+
 # user_choice
 #
 # gets the users choice as a variable and tells them what they picked
@@ -6,12 +11,12 @@ get_user_choice() {
    do
     read -p "Enter your choice (1 Rock, 2 Paper, 3 Scissors): " user_choice
     if [[ "$user_choice" != 1 && "$user_choice" != 2 && "$user_choice" != 3 ]]; then
-      echo "Invalid choice, please enter a number between 1 and 3."
+      echo -e "${RED}Invalid choice, please enter a number between 1 and 3.${NC}"
     else
       case $user_choice in
-        1) echo "You chose Rock" ;;
-        2) echo "You chose Paper" ;;
-        3) echo "You chose Scissors" ;;
+        1) echo -e "${YELLOW}You chose Rock${NC}" ;;
+        2) echo -e "${YELLOW}You chose Paper ${NC}" ;;
+        3) echo -e "${YELLOW}You chose Scissors${NC}" ;;
       esac
       break
     fi
@@ -47,9 +52,9 @@ computer_choice() {
 	computer_number=$(( (RANDOM % 3) + 1 ))
 	
 	case $computer_number in
-		1) echo "Computer chose Rock" ;;
-		2) echo "Computer chose Paper" ;;
-		3) echo "Computer chose Scissors" ;;
+		1) echo -e "${BLUE}Computer chose Rock${NC}" ;;
+		2) echo -e "${BLUE}Computer chose Paper${NC}" ;;
+		3) echo -e "${BLUE}Computer chose Scissors${NC}" ;;
 	esac
 }
 
@@ -63,26 +68,26 @@ winnerLogic(){
 
 		#checks if the user has won
 	elif [[ "$user_choice" -eq 1 && "$computer_number" -eq 3 ]];then
-	        echo "YOU WIN!!"
+	        echo -e "${GREEN}YOU WIN!!${NC}"
 		user_score_history+=('1')
 		computer_score_history+=('0')
 		((user_total++))
 
        elif [[ "$user_choice" -eq 2 && "$computer_number" -eq 1  ]];then
-		echo "YOU WIN!!"
+		echo -e "${GREEN}YOU WIN!!${NC}"
 		user_score_history+=('1')
 		computer_score_history+=('0')
 		((user_total++))
 
  	elif [[ "$user_choice" -eq 3 && "$computer_number" -eq 2 ]];then
-		echo "YOU WIN!!"
+		echo -e "${GREEN}YOU WIN!!${NC}"
 		user_score_history+=('1')
 		computer_score_history+=('0')
 		((user_total++))
 
 		#else user loses
 	else
-		echo "YOU LOSE!!"
+		echo -e "${RED}YOU LOSE!!${NC}"
 		user_score_history+=('0')
 		computer_score_history+=('1')
 		((computer_total++))
@@ -91,6 +96,4 @@ winnerLogic(){
 }		
 
 
-
-#Score
 

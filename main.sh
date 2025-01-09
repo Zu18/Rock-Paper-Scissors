@@ -3,6 +3,7 @@
 
 source "functions.sh"
 source "messages.sh"
+source "colours.sh"
 
 main() {
 	#welcome and rules displayed at the start
@@ -29,7 +30,7 @@ while true;
 			echo "------------------"
 			break
 		else
-			echo "Invalid input"
+			echo -e "${RED}Invalid input${NC}"
 		fi
  	done
 done
