@@ -5,11 +5,10 @@ source "functions.sh"
 source "messages.sh"
 
 main() {
-  while true; 
+welcomeDisplay
+ruleDisplay
+while true; 
   do
-
-    welcomeDisplay
-    ruleDisplay
     get_user_choice
     computer_choice
 

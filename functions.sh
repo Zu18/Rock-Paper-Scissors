@@ -20,15 +20,14 @@ get_user_choice() {
 # 0 - lost, 1 - won, T - tie
 user_score_history=("0" "1" "T")
 computer_score_history=("1" "0" "T")
-
+user_total=0
+computer_total=0
 display_score_history() {
    echo
    echo "Score History"
    echo "------------------"
    echo -e "User\tComputer"
    length=${#user_score_history[@]}
-   user_total=0
-   computer_total=0
    
    for ((i=0; i<length; i++))
    do
@@ -58,6 +57,44 @@ computer_choice() {
 		3) echo "Computer chose Scissors" ;;
 	esac
 }
+
+#winnerLogic score incremented
+winnerLogic(){
+	#checks if its a draw
+	if [[ "$computer_number" -eq "$user_choice" ]];then
+		echo "Draw"
+		user_score_history+=('T') 
+		computer_score_history+=('T')
+
+		#checks if the user has won
+	elif [[ "$user_choice" -eq 1 && "$computer_number" -eq 3 ]];then
+	        echo "YOU WIN!!"
+		user_score_history+=('1')
+		computer_score_history+=('0')
+		((user_total++))
+
+       elif [[ "$user_choice" -eq 2 && "$computer_number" -eq 1  ]];then
+		echo "YOU WIN!!"
+		user_score_history+=('1')
+		computer_score_history+=('0')
+		((user_total++))
+
+ 	elif [[ "$user_choice" -eq 3 && "$computer_number" -eq 2 ]];then
+		echo "YOU WIN!!"
+		user_score_history+=('1')
+		computer_score_history+=('0')
+		((user_total++))
+
+		#else user loses
+	else
+		echo "YOU LOSE!!"
+		user_score_history+=('0')
+		computer_score_history+=('1')
+		((computer_total++))
+	fi
+}		
+
+
 
 
 #Score
