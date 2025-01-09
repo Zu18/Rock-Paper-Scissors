@@ -2,6 +2,7 @@
 
 
 source "functions.sh"
+source "messages.sh"
 
 main() {
   while true; 
