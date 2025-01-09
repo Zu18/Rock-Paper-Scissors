@@ -7,8 +7,9 @@ source "messages.sh"
 main() {
   while true; 
   do
-    echo "Rock-Paper-Scissors Games!"
 
+    welcomeDisplay
+    ruleDisplay
     get_user_choice
     computer_choice
 
