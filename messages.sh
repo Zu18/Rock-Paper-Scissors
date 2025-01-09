@@ -1,8 +1,16 @@
 #stores the responses to the user
 #! /bin/bash
 
-computer_choice()  {
-	random_number=$(( (RANDOM % 3) + 1 ))
+welcomeDisplay() {
+	echo "welcome to Rock, Paper, Scissors."
+	echo "A game of human vs machine."
+}
 
-	echo "computer choice: $random_number"
+
+ruleDisplay() {
+	echo "Pick an option: Rock, Paper or scissors."
+	echo "- Rock beats Scissors."
+	echo "- Scissors beat Paper."
+	echo "- Paper beats Rock."
+	echo "GOOD LUCK."
 }
