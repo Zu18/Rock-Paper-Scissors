@@ -1,4 +1,6 @@
 # user_choice
+#
+# gets the users choice as a variable and tells them what they picked
 get_user_choice() {
   while true;
    do
@@ -40,7 +42,7 @@ display_score_history() {
    echo "------------------"
 }
 
-# computer's choice
+# generates the computer's choice
 computer_choice() {
 	computer_number=$(( (RANDOM % 3) + 1 ))
 	
@@ -51,7 +53,7 @@ computer_choice() {
 	esac
 }
 
-#winnerLogic score incremented
+#winnerLogic score incremented and history appended
 winnerLogic(){
 	#checks if its a draw
 	if [[ "$computer_number" -eq "$user_choice" ]];then
@@ -87,7 +89,6 @@ winnerLogic(){
 	fi
 	echo -e "User: $user_total\tComputer: $computer_total"
 }		
-
 
 
 
