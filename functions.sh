@@ -16,6 +16,36 @@ get_user_choice() {
   done
 }
 
+# Arrays to track scores !!!Set to the empty array after adding determine_winner() function
+# 0 - lost, 1 - won, T - tie
+user_score_history=("0" "1" "T")
+computer_score_history=("1" "0" "T")
+
+display_score_history() {
+   echo
+   echo "Score History"
+   echo "------------------"
+   echo -e "User\tComputer"
+   length=${#user_score_history[@]}
+   user_total=0
+   computer_total=0
+   
+   for ((i=0; i<length; i++))
+   do
+     if [[ ${user_score_history[i]} == 1 ]]; then
+       ((user_total++))
+     fi
+     if [[ ${computer_score_history[i]} == 1 ]]; then
+       ((computer_total++))
+     fi
+     echo -e "${user_score_history[i]}\t${computer_score_history[i]}"
+   done
+
+   echo "------------------"
+   echo "Total Scores:"
+   echo -e "User: $user_total\tComputer: $computer_total"
+   echo "------------------"
+}
 
 # computer's choice
 computer_choice() {
